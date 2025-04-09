@@ -56,3 +56,61 @@ data1 = pd.DataFrame(list2, columns = ['humidity', 'temperature', 'wind'] )
 avgg = data1.mean()
 avgg
 
+# list array which is faster (obviously array)
+import time
+import array
+
+# Measure time taken to create a list
+start_list = time.time()
+py_list = [1, 2, 3, 4, 5]
+for i in py_list:
+    print(i)
+end_list = time.time()
+list_time = end_list - start_list
+
+# Measure time taken to create an array
+start_array = time.time()
+py_array = array.array('i', [1, 2, 3, 4, 5])
+for i in py_array:
+    print(i)
+end_array = time.time()
+array_time = end_array - start_array
+
+print(f"List creation time: {list_time:.20f} seconds")
+print(f"Array creation time: {array_time:.20f} seconds")
+
+# alternate
+import timeit
+import array
+
+# Define a large list and array
+list_test = list(range(10**6))  # Python list
+array_test = array.array('i', list_test)  # Integer array
+
+# Measure time taken for sum operation
+list_time = timeit.timeit(lambda: sum(list_test), number=100)
+array_time = timeit.timeit(lambda: sum(array_test), number=100)
+
+print(f"List execution time: {list_time:.5f} seconds")
+print(f"Array execution time: {array_time:.5f} seconds")
+
+# append and extend difference in list
+a = [1, 2, 3]
+b = [4, 5]
+
+a.append(b)
+print(a)  # Output: [1, 2, 3, [4, 5]]
+
+a = [1, 2, 3]
+a.extend(b)
+print(a)  # Output: [1, 2, 3, 4, 5]
+
+# indicate type of type
+a = 5
+print(type(type))
+# function call and return nothing
+def fun1(x):
+    x = x+1
+    return
+a = fun1(2)
+print(a)
