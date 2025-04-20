@@ -27,8 +27,7 @@ def defaultargs(a,b = 2 , c = 6):
     print(a,b, c)
 defaultargs(2,3)
 
-# lambda function
-
+# lambda function 
 square = lambda x: x ** 2
 print(square(5)) 
 
