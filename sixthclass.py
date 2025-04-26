@@ -45,7 +45,8 @@ class Pagani(Vehicle):
         print("This is a car")
 P = Pagani()
 P.drive()
-print(Pagani.__mro__)
+print(Pagani.__mro__)      # Method Resolution Order. It shows the order in which Python
+                           #looks for methods and attributes when you call them on an object.
 
 # inheritance example 1
 
