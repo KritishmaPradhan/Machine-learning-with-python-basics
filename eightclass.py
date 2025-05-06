@@ -38,15 +38,20 @@ a = [1, 2, 3, 4, 5, 6]
 b = filter(if_even, a)
 print(list(b))  
 
-usr_database = ['xyz@gmail,com', 'abc@gmail.com', 'hello@gmail.com']
-subscription = { 'xyz@gmail.com' : 1,
-                 'abc@gmail.com' : 0,
-                 'hello@gmail.com' : 1}
-def if_spam(email1):
-    global usr_database
-    return email1.values() == 1 and email1 in usr_database
+# to check whether the user email is subscribed or not and if it exists in usr_database or not
+usr_database = ['xyz@gmail.com', 'abc@gmail.com', 'hello@gmail.com', 'rachel@gmail.com']  
+subscription = {
+    'xyz@gmail.com': 1,
+    'abc@gmail.com': 0,
+    'hello@gmail.com': 1,
+    'people@gamil.com' : 1
+}
+
+def if_spam(email):
+    return subscription[email] == 1 and email in usr_database
+
 verify = filter(if_spam, subscription)
-print("It exists", list(verify))
+print("It exists:", list(verify))
 
 # decorator in Python
 def addition(a,b):
